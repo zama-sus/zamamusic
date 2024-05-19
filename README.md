@@ -1,27 +1,21 @@
-# ZamamusicDemo
+# Zamamusic
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+Ez egy Agular 17-es projekt
 
-## Development server
+A projekt az "ng build" és "ng serve" parancsok terminálból való kidásával lokálisan is megtekinthető.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+A projekt fő funkciói:
 
-## Code scaffolding
+- A főoldalon találkozhattok az eddig feltöltött zenék listájával, illetve felül egy kereső sávval, amibe szöveget írva külön trekkekre lehet keresni.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Regisztráció, bejelentkezés, ezek értelemszerűen működnek. Regisztrációkor nem kötelező bio-t illetve képet feltölteni, elég az e-mail cím, felhasználónév illetve jelszó. Bio és képfeltöltésre a későbbiekben sajnos nem lesz lehetőség, csak regisztrációkor.
 
-## Build
+- Zene feltöltés. Ehhez kötelező megadni a zene címét, illetve a zene fileját. Nem muszáj képet és leírást adni neki, a kép kap egy placeholdert amennyiben nem töltötök fel semmit.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- A zenéket a bejelentkezett felhasználók be is likeolhatják a szívecske gombra kattintva, zenénként ez egyszer adható meg, és az össz likeok száma számolódik is.
 
-## Running unit tests
+- Ha a saját profilképünkre kattintunk a jobb felső sarokban, a saját profilunkra fog továbbvinni minket a honlap, ahol a kilistázott zenéink közül bármelyiket törölhetjük, a kuka ikonra kattintva.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Ha a főoldalon, vay keresés után kilistázott zenék közül valamelyiken a feltöltő felhasználónevére kattintunk, akkor az adott felhasználó profilját fogjuk látni, az általa feltöltött zenékkel.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Nagy vonalakban ennyi, ha bármi kérdésetek volna akkor Kalkuluták Discordon megtaláltok Zamasu néven.
