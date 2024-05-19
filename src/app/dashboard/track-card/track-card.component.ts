@@ -27,11 +27,11 @@ constructor(
     }
     else{
       const dialogRef = this.dialog.open(MessagePopupComponent, {
-        data: {title: '', message: 'You can able to like the track only after login'},
+        data: {title: '', message: 'Csak bejelentkezés után tudsz zenét likeolni'},
       });
-    
+
     }
-    
+
   }
 
   checkLike(item:any){
