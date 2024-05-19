@@ -1,0 +1,23 @@
+.mat-mdc-card{
+  padding: 2rem;
+   width: 500px; 
+}
+.wrapper-inside-child{
+  height: 90vh;
+  display: grid;
+  place-content: center;
+}
+.card{
+  width: 500px;
+}
+@media(max-width:567px){
+  .mat-mdc-card{
+    padding: 1rem;
+    width: auto;
+  }
+  .wrapper-inside-child{
+    height: 90vh;
+    display: block;
+    place-content: center;
+  }
+}

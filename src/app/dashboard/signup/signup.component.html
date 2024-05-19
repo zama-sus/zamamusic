@@ -1,0 +1,73 @@
+<div class="wrapper-inside-child">
+<div class="row">
+  <div class="col-md-12 mx-auto ">
+      <form [formGroup]="signupForm">
+        <mat-card>
+      <h1 class="mat-headline-4 text-center mt-2 mb-3">Regisztráció</h1>
+     <div class="form-group">
+      <mat-form-field class="w-100" >
+        <mat-label>E-mail cím</mat-label>
+        <input matInput formControlName="email" class="w-100" >
+      </mat-form-field>
+    </div>
+     <div class="form-group">
+      <mat-form-field class="w-100" >
+        <mat-label>Felhasználónév</mat-label>
+        <input matInput formControlName="username" class="w-100" >
+      </mat-form-field>
+   </div>
+   <div class="d-lg-flex d-block">
+    <div class="form-group w-lg-50 w-100 me-1">
+      <mat-form-field class="w-100" >
+        <mat-label>Jelszó</mat-label>
+        <input matInput formControlName="password" class="w-100" >
+      </mat-form-field>
+      @if(password?.invalid && (password?.dirty || password?.touched)){
+      <small class="text-danger" >
+       @if (password?.errors?.['passwordLength'] ) {
+        <small class="text-danger">A jelszónak legalább 6 karakter hosszúnak kell lennie</small>
+      }
+      </small>
+    }
+   </div>
+   <div class="form-group w-lg-50 w-100">
+    <mat-form-field class="w-100" >
+      <mat-label>Jelszó ismét</mat-label>
+      <input matInput formControlName="confirmPassword" class="w-100"  >
+    </mat-form-field>
+    @if (signupForm.hasError('passwordMismatch') && (signupForm.get('confirmPassword')?.dirty || signupForm.get('confirmPassword')?.touched)) {
+    <small class="text-danger" >
+      A két jelszó különbözik
+    </small>
+  }
+  </div>
+   </div>
+
+
+<div class="form-group d-flex">
+  <div class="w-50">
+  <label>Profilkép</label>
+ <input type="file" class="form-control mb-2" accept="image/*" (change)="imageUpload($event)" >
+ </div>
+ <div  class="w-50 ps-2">
+ @if (imagePreview) {
+  <img width="100px" [src]="imagePreview?.url" [alt]="imagePreview?.url">
+}</div>
+
+</div>
+<div class="form-group">
+  <mat-form-field class="w-100 mt-2" >
+    <mat-label>Leírás</mat-label>
+    <textarea matInput formControlName="bio" class="w-100" ></textarea>
+  </mat-form-field>
+</div>
+     <div class="form-group text-center">
+      <button mat-flat-button color="primary"
+       [disabled]="signupForm.invalid"
+       (click)="submit()">Regisztráció</button>
+     </div>
+
+        </mat-card>
+  </form>
+  </div>
+</div></div>

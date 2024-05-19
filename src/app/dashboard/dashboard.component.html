@@ -1,0 +1,88 @@
+<div class="wrapper bg-primary">
+  <form [formGroup]="queryForm">
+  <!-- DESKTOP -->
+  <div class="d-lg-block d-none">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/']">Zama Music</a>
+      <div class="collapse navbar-collapse justify-content-between d-flex " id="navbarSupportedContent">
+
+        <div class="w-75">
+          <input type="text" placeholder="keresés" class="form-control w-75" formControlName="query" >
+        </div>
+        <div class="d-flex align-items-center ">
+          @if (!authService.uid) {
+            <button type="button" mat-flat-button color="primary" [routerLink]="['/login']"  class=" me-2">Bejelentkezés</button>
+            <button type="button" mat-flat-button color="primary" [routerLink]="['/signup']" class="me-2">Regisztráció</button>
+
+          }
+          @if (authService.uid) {
+            <button type="button" [routerLink]="['/add-tracks']"
+            mat-flat-button color="primary"  class="me-2">Feltöltés</button>
+
+            <button type="button" mat-flat-button color="primary" (click)="logout()" class="me-2">Kijelentkezés</button>
+
+            <div class="profile " [routerLink]="['/user-tracks/',authService.uid]"  >
+              @if (!userData.profileImage) {
+                <img src="assets/images/user.png">
+              }
+              @if (userData.profileImage) {
+                <img [src]="userData.profileImage.url">
+              }
+
+            </div>
+          }
+           </div>
+
+      </div>
+    </div>
+  </nav>
+</div>
+
+    <!-- MOBILE -->
+    <div class="d-lg-none d-block">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class=" d-flex w-100">
+          <a class="navbar-brand ms-2" [routerLink]="['/']">Zama Music</a>
+          <div class="collapse navbar-collapse justify-content-b d-flex "
+          [ngStyle]="authService.uid ? { 'justify-content': 'space-between' } : { 'justify-content': 'end' }"
+          id="navbarSupportedContent">
+
+
+            <div class="d-flex align-items-center ">
+              @if (!authService.uid) {
+                <button type="button" mat-flat-button color="primary" [routerLink]="['/login']"  class=" me-2">Bejelentkezés</button>
+                <button type="button" mat-flat-button color="primary" [routerLink]="['/signup']" class="me-2">Regisztráció</button>
+
+              }
+              @if (authService.uid) {
+                <button type="button" [routerLink]="['/add-tracks']"
+                mat-flat-button color="primary"  class="me-2">Feltöltés</button>
+
+                <button type="button" mat-flat-button color="primary" (click)="logout()" class="me-2">Kijelentkezés</button>
+
+                <div class="profile " [routerLink]="['/user-tracks/',authService.uid]"  >
+                  @if (!userData.profileImage) {
+                    <img src="assets/images/user.png" style="width: 30px !important;height: 30px !important;" >
+                  }
+                  @if (userData.profileImage) {
+                    <img [src]="userData.profileImage.url" style="width: 30px !important;height: 30px !important;">
+                  }
+
+                </div>
+              }
+               </div>
+
+          </div>
+        </div>
+        <div class="mt-2 w-100 mx-2">
+          <input type="text" placeholder="keresés" class="form-control w-100 " formControlName="query">
+        </div>
+      </nav>
+    </div>
+  </form>
+  <div class="container-fluid wrapper-inside pb-5">
+
+   <router-outlet></router-outlet>
+  </div>
+ </div>

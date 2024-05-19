@@ -1,0 +1,17 @@
+<div class="wrapper-inside-child">
+
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      @for (item of resultList; track $index) {
+
+     <app-track-card [item]="item" (likeEvent)="likeTrack($event)"></app-track-card>
+    }
+    @if (resultList.length < 4 && !searchKey) {
+    <div class="text-center my-3">
+      <button type="button" (click)="load()" mat-flat-button color="primary">
+        Több betöltése
+      </button>
+    </div>}
+    </div>
+  </div>
+  </div>

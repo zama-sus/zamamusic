@@ -1,0 +1,34 @@
+<div class="wrapper-inside-child">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <form [formGroup]="loginForm">
+        <mat-card>
+          <h1 class="mat-headline-4 text-center mt-2 mb-3">Bejelentkezés</h1>
+          <div class="form-group">
+            <mat-form-field class="w-100">
+              <mat-label>Email cím</mat-label>
+              <input matInput formControlName="email" class="w-100" />
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="w-100">
+              <mat-label>Jelszó</mat-label>
+              <input matInput formControlName="password" class="w-100" />
+            </mat-form-field>
+          </div>
+
+          <div class="form-group text-center">
+            <button
+              mat-flat-button
+              color="primary"
+              [disabled]="loginForm.invalid"
+              (click)="submit()"
+            >
+              Bejelentkezés
+            </button>
+          </div>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+</div>

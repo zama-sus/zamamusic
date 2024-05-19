@@ -1,0 +1,27 @@
+.wrapper{
+  height: 100vh;
+}
+.header{
+ height: 10vh;
+}
+.wrapper-inside{
+  overflow-y: auto;
+  height: 90vh;
+  position: static;
+}
+.profile{
+  cursor: pointer;
+  img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  }
+}
+@media(max-width: 768px){
+  .wrapper-inside{
+    overflow-y: auto;
+    height: 90vh;
+    position: fixed;
+  }
+}
+

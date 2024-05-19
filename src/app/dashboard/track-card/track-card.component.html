@@ -1,0 +1,26 @@
+<mat-card class="card-track flex-row p-2 d-lg-flex d-block align-items-center justify-content-between mt-3">
+  <div class="d-flex">
+  <div>
+    <img [src]="item.trackImage?.url"
+    onerror="this.onerror=null;this.src='assets/images/track.png';"
+    class="track-img">
+  </div>
+  <div class="ms-3">
+    <h6 class="mb-0 pointer"
+      [routerLink]="['/user-tracks/',item.createdBy]">{{item?.username}}</h6> 
+   <h4 class="mb-3">{{item?.title}}</h4>
+
+   <!--  @if (this.authService.uid) { -->
+      <div >
+        <i class="fa-heart  text-danger" 
+        [ngClass]=" checkLike(item) ? 'fa-solid' : 'fa-regular'" 
+        role="button" (click)="sentLike(item)"></i>
+        <span class="ms-2">{{item.likes?.length ? item.likes?.length : 0 }}</span>
+      </div>
+   <!--  } -->
+  </div>
+</div>
+  <div>
+    <audio [src]="item.track.url" controls></audio>
+  </div>
+</mat-card>
